@@ -1,0 +1,78 @@
+body {
+    background-color: black;
+    color: green;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.terminal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid green;
+    padding: 20px;
+    background-color: black;
+    z-index: 2;
+}
+
+.output {
+    font-size: 1.5em;
+    animation: blink 1s step-end infinite;
+}
+
+.code-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+    pointer-events: none;
+    white-space: pre-wrap;
+    color: green;
+    opacity: 0.1;
+    font-size: 0.8em;
+}
+
+.loading-bar {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 20px;
+    background-color: #333;
+    border: 2px solid green;
+    display: none;
+}
+
+.loading-bar div {
+    height: 100%;
+    background-color: green;
+    width: 0;
+    transition: width 3s linear; /* Ajustar tiempo a 3 segundos */
+}
+
+@keyframes blink {
+    from, to {
+        visibility: visible;
+    }
+    50% {
+        visibility: hidden;
+    }
+}
